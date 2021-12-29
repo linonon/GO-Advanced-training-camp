@@ -1,4 +1,4 @@
-# 3 RPC server finding
+# 3 RPC Service Discovery
 
 ## gRPC
 
@@ -24,4 +24,16 @@ k8s readiness -> gRPC HealthCheck: Server is useable or not.
 
 Lame ducking
 
-![]()
+
+- Service Discovery in Microservice
+![](pic/Service-Discovery.png)
+
+- Service Discovery: 
+    - Alibaba: Nacos
+    - 螞蟻: SOFARegistry
+    - NetFilx: Eureka
+
+### Service Discovery
+- Name rule: 業務.服務.子服務
+
+![](pic/Eureka.png)
