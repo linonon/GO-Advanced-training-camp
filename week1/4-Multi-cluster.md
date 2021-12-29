@@ -45,3 +45,5 @@ def Subset(backends, client_id, subset_size):
 - 隔離性：能夠可靠的隔離測試和生產中的資源，這樣可以保證對於關鍵業務微服務沒有副作用
 
 ![](pic/color.png)
+
+![](pic/shadow-system.png)
