@@ -46,4 +46,8 @@ def Subset(backends, client_id, subset_size):
 
 ![](pic/color.png)
 
+
+### Shadow system
 ![](pic/shadow-system.png)
+
+跨服務傳遞請求加上 Context， 數據隔離的流量路由方案。
