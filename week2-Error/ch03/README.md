@@ -42,7 +42,7 @@ func CountLines(r io.Reader) (int, error) {
 ```
 
 errWriter
-```go 
+```go
 type errWriter struct {
     io.Writer
     err error
@@ -58,3 +58,7 @@ func (e *errWriter) Write(buf []byte) (int, error) {
     return n, nil
 }
 ```
+
+## Wrap errors
+- `log 噪音`: 與 error 無關的且對調試沒有幫助的信息
+- `記錄 log 的原因`: 因為有程序失敗了，而 log 包含了答案
