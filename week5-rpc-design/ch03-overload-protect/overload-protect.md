@@ -84,3 +84,36 @@
 - 過載保護時，低優先級請求會被丟棄
 
 ## 熔斷
+為了限制操作的持續時間，可以使用超時，超時可以防止掛起操作並保證系統可以響應。
+- 服務依賴的資源出現大量錯誤
+- Server端有可能因為不斷發送拒絕請求而導致過載。
+
+- `Google SRE`: `max(0, (requests - K * accepts) / (requests + 1))`
+    - 隨著 requests 增加， accepts 也會增加。
+  
+```go
+func (b *sreBreaker) Allow() error {
+    success, total := b.stat.Value()
+    k := b.k * float64(success)
+
+    if total < b.request || float64(total) < k {
+        return nil
+    }
+    dr := math.Max(0, (float64(total) - k)/float64(total + 1))
+    rr := b.r.Float64()
+
+    if dr <= rr {
+        return nil
+    }
+    return ecode.ServiceUnavailable
+}
+```
+
+## Gutter 
+基於熔斷的gutter kafka， 用於接管自動修復系統運行過程中的負載，這樣只需要付出10%的資源就能解決部分系統可用性問題。
+
+## 客戶端控流
+positive feedback：用戶總是積極重試，訪問一個不可控的服務。
+- 客戶端限制請求頻次，retry backoff做一定的請求退讓。
+- 可以通過接口級別的error_details，掛載到每個API返回到響應裡。
+
