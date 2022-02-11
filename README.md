@@ -1,2 +1,3 @@
 # Learn-Go
-Learning Go's Project
+
+Learning Go's Server related knowledge
