@@ -123,7 +123,7 @@ Storege 和 Cache 同步更新容易出現數據不一致。
 2. 只讓一個人去構建 Cache
     1. 同時可以使用 Kafka 消息隊列的方式去構建 Cache，可以減少大量的內存壓力。
 
-// TODO: CRDT解決緩存穿透
+TODO: 了解 CRDT 解決緩存穿透
 
 ## 緩存技巧
 
