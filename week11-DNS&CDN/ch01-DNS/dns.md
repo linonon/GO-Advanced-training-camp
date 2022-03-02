@@ -56,8 +56,8 @@ CDN流程圖：
 TODO: 深入了解 HTTP header: Expire, cache control, Last-Modified/If-Modified-Since, Etag
 
 - Expire: HTTP Header 中指明具體失效的時間（HTTP/1.0）
-- Cache Control: Max-age 在 HTTP Header 中按秒指定失效的時間，優先級高於 Expires（HTTP/1.1）
-- Last-Modifided / If-Modified-Since: 文件最後一次的修改時間（精度是秒，HTTP/1.0），需要 Cache-Control 過期。
+- Cache-Control: Max-age 在 HTTP Header 中按秒指定失效的時間，優先級高於 Expires（HTTP/1.1）
+- Last-Modified/ If-Modified-Since: 文件最後一次的修改時間（精度是秒， HTTP/1.0），需要 Cache-Control 過期。
 - Etag: 當前資源在服務器的唯一標示（生成規則由服務器決定），優先級高於 Last-Modified
 
 HTTP-Header屬性流程圖
